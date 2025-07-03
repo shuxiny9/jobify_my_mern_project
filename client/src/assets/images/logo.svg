@@ -1,0 +1,58 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变 -->
+  <defs>
+    <!-- 主要渐变：宝宝蓝到粉色 -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 辅助渐变：薰衣草色 -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f0f8ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f2fe;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影效果 -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="4" stdDeviation="3" flood-color="#38bdf8" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- 背景装饰圆形 -->
+  <circle cx="25" cy="30" r="20" fill="url(#accentGradient)" opacity="0.6"/>
+  
+  <!-- 主要图标：工作/简历图标 -->
+  <g transform="translate(10, 15)">
+    <!-- 文件夹/简历图标 -->
+    <rect x="5" y="5" width="20" height="26" rx="3" ry="3" fill="url(#mainGradient)" filter="url(#softShadow)"/>
+    <!-- 文件内容线条 -->
+    <line x1="9" y1="12" x2="21" y2="12" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9" y1="16" x2="19" y2="16" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9" y1="20" x2="21" y2="20" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="9" y1="24" x2="17" y2="24" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    
+    <!-- 小装饰：星星 -->
+    <circle cx="28" cy="8" r="2" fill="#ec4899" opacity="0.8"/>
+    <circle cx="32" cy="25" r="1.5" fill="#a855f7" opacity="0.6"/>
+  </g>
+  
+  <!-- Jobify 文字 -->
+  <g transform="translate(50, 35)">
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="url(#mainGradient)">
+      <tspan>J</tspan><tspan fill="#0ea5e9">obify</tspan>
+    </text>
+  </g>
+  
+  <!-- 装饰元素 -->
+  <g opacity="0.4">
+    <!-- 小圆点装饰 -->
+    <circle cx="165" cy="15" r="3" fill="#38bdf8"/>
+    <circle cx="175" cy="20" r="2" fill="#ec4899"/>
+    <circle cx="185" cy="12" r="2.5" fill="#a855f7"/>
+    
+    <!-- 底部装饰线 -->
+    <path d="M50 45 Q100 48 150 45" stroke="url(#mainGradient)" stroke-width="2" fill="none" opacity="0.6"/>
+  </g>
+</svg>

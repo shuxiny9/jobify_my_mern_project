@@ -1,3 +1,5 @@
+import 'express-async-errors'; // 处理异步错误
+
 import * as dotenv from 'dotenv';
 // 首先配置环境变量
 dotenv.config();

@@ -18,7 +18,7 @@ const JobSchema = new mongoose.Schema(
       type: String,
       default: 'my city',
     },
-  },
+  }, 
   { timestamps: true }
 );
 

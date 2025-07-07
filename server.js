@@ -20,7 +20,6 @@ import jobRouter from './routers/jobRouter.js';
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 
-import { validateTest } from './middleware/validationMiddleware.js';
 
 
 app.get('/', (req, res) => {
@@ -28,13 +27,7 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-app.post('/api/v1/test', validateTest, 
-  
-  (req, res) => {
-    const { name } = req.body;
-    res.json({ msg: `hello ${name}` });
-  }
-);
+
 
 app.use('/api/v1/jobs', jobRouter);
 
@@ -43,11 +36,6 @@ app.use('*', (req, res) => {
   res.status(404).json({ msg: 'not found' });
 });
 
-
-/*app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({ msg: 'something went wrong' });
-});*/
 // use the error handler middleware
 app.use(errorHandlerMiddleware);
 

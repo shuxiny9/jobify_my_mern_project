@@ -20,6 +20,10 @@ if (process.env.NODE_ENV === 'development') {
 //routers
 import jobRouter from './routers/jobRouter.js';
 
+//middleware
+import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
+
+
 //  其他路由（在 jobRouter 之前）
 app.post('/', (req, res) => {
   console.log(req);
@@ -34,10 +38,12 @@ app.use('*', (req, res) => {
 });
 
 // 错误处理中间件（必须在最后）
-app.use((err, req, res, next) => {
+/*app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).json({ msg: 'something went wrong' });
-});
+});*/
+// 使用自定义错误处理中间件
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;
 

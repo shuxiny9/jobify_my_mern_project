@@ -5,4 +5,4 @@ export class NotFoundError extends Error {
     this.name = 'NotFoundError';
     this.statusCode = StatusCodes.NOT_FOUND; //404
   }
-}
+}  

@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'development') {
 import jobRouter from './routers/jobRouter.js';
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
+import authRouter from './routers/authRouter.js';
 
 
 
@@ -28,8 +29,9 @@ app.get('/', (req, res) => {
 });
 
 
-
 app.use('/api/v1/jobs', jobRouter);
+app.use('/api/v1/auth', authRouter);
+
 
 // 404 处理（在所有路由之后）
 app.use('*', (req, res) => {

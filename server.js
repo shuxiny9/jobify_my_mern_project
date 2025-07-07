@@ -1,5 +1,4 @@
 import 'express-async-errors'; // 处理异步错误
-
 import * as dotenv from 'dotenv';
 // 首先配置环境变量
 dotenv.config();
@@ -16,19 +15,26 @@ import morgan from 'morgan';
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
-
 //routers
 import jobRouter from './routers/jobRouter.js';
-
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 
+import { validateTest } from './middleware/validationMiddleware.js';
 
-//  其他路由（在 jobRouter 之前）
-app.post('/', (req, res) => {
+
+app.get('/', (req, res) => {
   console.log(req);
   res.send('Hello World');
 });
+
+app.post('/api/v1/test', validateTest, 
+  
+  (req, res) => {
+    const { name } = req.body;
+    res.json({ msg: `hello ${name}` });
+  }
+);
 
 app.use('/api/v1/jobs', jobRouter);
 
@@ -37,12 +43,12 @@ app.use('*', (req, res) => {
   res.status(404).json({ msg: 'not found' });
 });
 
-// 错误处理中间件（必须在最后）
+
 /*app.use((err, req, res, next) => {
   console.log(err);
   res.status(500).json({ msg: 'something went wrong' });
 });*/
-// 使用自定义错误处理中间件
+// use the error handler middleware
 app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 5100;

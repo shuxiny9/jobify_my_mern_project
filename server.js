@@ -17,9 +17,10 @@ if (process.env.NODE_ENV === 'development') {
 }
 //routers
 import jobRouter from './routers/jobRouter.js';
+import authRouter from './routers/authRouter.js';
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
-import authRouter from './routers/authRouter.js';
+
 
 
 

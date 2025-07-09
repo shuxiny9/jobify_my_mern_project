@@ -20,8 +20,7 @@ import jobRouter from './routers/jobRouter.js';
 import authRouter from './routers/authRouter.js';
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
-
-
+import { authenticateUser } from './middleware/authMiddleware.js';
 
 
 app.get('/', (req, res) => {
@@ -29,9 +28,9 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-
-app.use('/api/v1/jobs', jobRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', authenticateUser, jobRouter);
+
 
 
 // 404 处理（在所有路由之后）

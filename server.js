@@ -5,11 +5,10 @@ dotenv.config();
 import express from 'express';
 // 创建 Express 应用
 const app = express();
-// 配置中间件
-app.use(express.json());
 // 连接到 MongoDB 数据库
 import mongoose from 'mongoose';
-
+// 解析 cookie 中间件
+import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 // 条件性添加 morgan（避免重复）
 if (process.env.NODE_ENV === 'development') {
@@ -22,6 +21,9 @@ import authRouter from './routers/authRouter.js';
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 import { authenticateUser } from './middleware/authMiddleware.js';
 
+
+app.use(express.json());
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
   console.log(req);

@@ -1,21 +1,27 @@
+import { hashPassword } from '../utils/passwordUtils.js';
 import { StatusCodes } from 'http-status-codes';
 import User from '../models/UserModel.js';
-import bcrypt from 'bcryptjs';
-
+import { UnauthenticatedError } from '../errors/customErrors.js';
 
 export const register = async (req, res) => {
   // first registered user is an admin
   const isFirstAccount = (await User.countDocuments()) === 0;
   req.body.role = isFirstAccount ? 'admin' : 'user';
-
-  // a random value that is added to the password before hashing
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(req.body.password, salt);
+  
+  // hash the password
+  const hashedPassword = await hashPassword(req.body.password);
   req.body.password = hashedPassword;
 
   const user = await User.create(req.body);
-  res.status(StatusCodes.CREATED).json({ msg: 'User created successfully', user });
+  res.status(StatusCodes.CREATED).json({ msg: 'user created' });
 };
+
 export const login = async (req, res) => {
-  res.send('login');
+  // check if user exists
+  // check if password is correct
+
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) throw new UnauthenticatedError('invalid credentials');
+
+  res.send('login route');
 };

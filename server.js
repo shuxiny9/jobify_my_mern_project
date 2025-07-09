@@ -20,6 +20,7 @@ import authRouter from './routers/authRouter.js';
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 import { authenticateUser } from './middleware/authMiddleware.js';
+import userRouter from './routers/userRouter.js';
 
 
 app.use(express.json());
@@ -32,7 +33,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobRouter);
-
+app.use('/api/v1/users', authenticateUser, userRouter);
 
 
 // 404 处理（在所有路由之后）

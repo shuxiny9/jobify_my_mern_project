@@ -13,6 +13,8 @@ import {
   Profile,
   Admin,
 } from './pages';
+import { action as registerAction } from './pages/Register';
+
 
 const checkDefaultTheme = () => {
   const isDarkTheme =
@@ -29,7 +31,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <HomeLayout />,
     errorElement: <Error />,
-   children: [
+    children: [
       {
         index: true,
         element: <Landing />,
@@ -37,6 +39,7 @@ const router = createBrowserRouter([
       {
         path: 'register',
         element: <Register />,
+        action: registerAction,
       },
       {
         path: 'login',
@@ -50,8 +53,10 @@ const router = createBrowserRouter([
             index: true,
             element: <AddJob />,
           },
-          { path: 'stats',
-             element: <Stats /> },
+          {
+            path: 'stats',
+            element: <Stats />
+          },
           {
             path: 'all-jobs',
             element: <AllJobs />,
@@ -68,9 +73,8 @@ const router = createBrowserRouter([
         ],
       },
     ],
-  },
+  }
 ]);
-
 const App = () => {
   return <RouterProvider router={router} />;
 };

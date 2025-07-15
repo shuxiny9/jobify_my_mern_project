@@ -3,8 +3,7 @@ import { Logo, FormRow } from '../components';
 import Wrapper from '../assets/wrappers/RegisterAndLoginPage';
 import customFetch from '../utils/customFetch';
 //import { toast } from 'react-toastify';
-import { toast } from '../utils/toast'; // 导入我们的 toast
-
+import { toast } from '../utils/toast'; // toast.js
 
 
 export const action = async ({ request }) => {

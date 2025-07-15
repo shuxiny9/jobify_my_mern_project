@@ -1,9 +1,8 @@
 import { Outlet } from 'react-router-dom';
-
 import Wrapper from '../assets/wrappers/Dashboard';
 import { Navbar, BigSidebar, SmallSidebar } from '../components';
-
 import { useState, createContext, useContext } from 'react';
+
 
 const DashboardContext = createContext();
 

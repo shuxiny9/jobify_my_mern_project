@@ -1,28 +1,42 @@
-import 'express-async-errors'; // 处理异步错误
+import 'express-async-errors'; 
 import * as dotenv from 'dotenv';
-// 首先配置环境变量
 dotenv.config();
 import express from 'express';
-// 创建 Express 应用
 const app = express();
-// 连接到 MongoDB 数据库
 import mongoose from 'mongoose';
-// 解析 cookie 中间件
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
-// 条件性添加 morgan（避免重复）
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
+import cloudinary from 'cloudinary';
+
 //routers
 import jobRouter from './routers/jobRouter.js';
 import authRouter from './routers/authRouter.js';
+//public
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
 import { authenticateUser } from './middleware/authMiddleware.js';
 import userRouter from './routers/userRouter.js';
 
 
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
+
+
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
+
+app.use(express.static(path.resolve(__dirname, './public')));
 app.use(express.json());
 app.use(cookieParser());
 

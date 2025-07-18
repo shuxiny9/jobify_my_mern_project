@@ -36,6 +36,7 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
+
 app.use(express.static(path.resolve(__dirname, './public')));
 app.use(express.json());
 app.use(cookieParser());
@@ -52,6 +53,10 @@ app.get('/api/v1/test', (req, res) => {
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobRouter);
 app.use('/api/v1/users', authenticateUser, userRouter);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './public', 'index.html'));
+});
 
 
 // 404 处理（在所有路由之后）

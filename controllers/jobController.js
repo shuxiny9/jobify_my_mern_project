@@ -30,6 +30,7 @@ export const getAllJobs = async (req, res) => {
     'a-z': 'position',
     'z-a': '-position',
   };
+ const sortKey = sortOptions[sort] || sortOptions.newest;
 
   // setup pagination
   const page = Number(req.query.page) || 1;

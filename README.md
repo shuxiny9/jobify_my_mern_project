@@ -108,32 +108,46 @@ node server
 ```
 
 ## 🧪 Testing
+
 Email:john@gmail.com
+
 Password:secret123
 
 
 ## 🏗️ Architecture
+
 Frontend Architecture
 
 Component-based architecture with reusable UI components
+
 Context API for global state management
+
 Custom hooks for shared logic
+
 Optimistic updates for better UX
 
 ## Backend Architecture
 
 RESTful API design
+
 MVC pattern implementation
+
 Middleware for authentication and validation
+
 MongoDB aggregation pipeline for analytics
 
 ## Security Features
 
 JWT stored in HTTP-only cookies
+
 Password hashing with bcrypt
+
 Input sanitization
+
 Rate limiting on auth routes
+
 CORS configuration
+
 XSS protection with Helmet
 
 ### 📊 API Endpoints

@@ -138,23 +138,23 @@ XSS protection with Helmet
 
 ### 📊 API Endpoints
 Authentication
-
+``` bash
 POST /api/v1/auth/register - User registration
 POST /api/v1/auth/login - User login
 GET /api/v1/auth/logout - User logout
-
+``` 
 ## Jobs
-
+``` bash
 GET /api/v1/jobs - Get all jobs (with filtering)
 POST /api/v1/jobs - Create new job
 GET /api/v1/jobs/:id - Get single job
 PATCH /api/v1/jobs/:id - Update job
 DELETE /api/v1/jobs/:id - Delete job
 GET /api/v1/jobs/stats - Get job statistics
-
+``` 
 ## Users
-
+``` bash
 GET /api/v1/users/current-user - Get current user
 PATCH /api/v1/users/update-user - Update user profile
 GET /api/v1/users/admin/app-stats - Admin statistics
-
+``` 

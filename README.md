@@ -5,6 +5,11 @@ A modern job tracking application built with the MERN stack that helps users man
 ## 🚀 Live Demo
 [View Live Application](https://jobify-my-mern-project.onrender.com)
 
+🧪 Testing
+Email:john@gmail.com
+Password:secret123
+
+
 ## 📸 Screenshots
 ![Dashboard](./screenshots/dashboard.png)
 ![Job List](./screenshots/job-list.png)
@@ -90,13 +95,13 @@ CLOUD_API_SECRET=your_cloudinary_secret
 ```bash
 npm run dev
 
-```markdown
+
 ## 📦 Build for Production
 ```bash
 npm run setup-production-app
 node server
 
-```markdown
+
 🧪 Testing
 Email:john@gmail.com
 Password:secret123

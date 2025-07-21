@@ -77,11 +77,13 @@ Password:secret123
 ```bash
 git clone https://github.com/yourusername/jobify.git
 cd jobify
-```bash
+``` 
+
 2. Install dependencies
-```bash
+`bash
 npm run setup-project
-```bash
+`
+
 3 . Environment Variables: Create a .env file in the root directory:
 ```bash
 NODE_ENV=development
@@ -92,17 +94,18 @@ JWT_EXPIRES_IN=1d
 CLOUD_NAME=your_cloudinary_name
 CLOUD_API_KEY=your_cloudinary_key
 CLOUD_API_SECRET=your_cloudinary_secret
-```bash
+```
+
 4. Run the application
-```bash
+`bash
 npm run dev
-```bash
+`
 
 ### 📦 Build for Production
-```bash
+``` bash
 npm run setup-production-app
 node server
-```bash
+```
 
 ## 🧪 Testing
 Email:john@gmail.com

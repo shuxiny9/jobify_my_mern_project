@@ -15,6 +15,9 @@ import authRouter from './routers/authRouter.js';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import helmet from 'helmet';
+import mongoSanitize from 'express-mongo-sanitize';
+
 
 //middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
@@ -41,15 +44,8 @@ app.use(express.static(path.resolve(__dirname, './client/dist')));
 
 app.use(express.json());
 app.use(cookieParser());
-
-app.get('/', (req, res) => {
-  console.log(req);
-  res.send('Hello World');
-});
-
-app.get('/api/v1/test', (req, res) => {
-  res.json({ msg: 'test route' });
-});
+app.use(helmet());
+app.use(mongoSanitize());
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobRouter);

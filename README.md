@@ -7,6 +7,7 @@ A modern job tracking application built with the MERN stack that helps users man
 
 🧪 Testing
 Email:john@gmail.com
+
 Password:secret123
 
 

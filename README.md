@@ -98,18 +98,18 @@ CLOUD_API_SECRET=your_cloudinary_secret
 npm run dev
 
 
-## 📦 Build for Production
+### 📦 Build for Production
 ```bash
 npm run setup-production-app
 node server
 
 
-🧪 Testing
+## 🧪 Testing
 Email:john@gmail.com
 Password:secret123
 
 
-🏗️ Architecture
+## 🏗️ Architecture
 Frontend Architecture
 
 Component-based architecture with reusable UI components
@@ -117,14 +117,14 @@ Context API for global state management
 Custom hooks for shared logic
 Optimistic updates for better UX
 
-Backend Architecture
+## Backend Architecture
 
 RESTful API design
 MVC pattern implementation
 Middleware for authentication and validation
 MongoDB aggregation pipeline for analytics
 
-Security Features
+## Security Features
 
 JWT stored in HTTP-only cookies
 Password hashing with bcrypt
@@ -133,14 +133,14 @@ Rate limiting on auth routes
 CORS configuration
 XSS protection with Helmet
 
-📊 API Endpoints
+### 📊 API Endpoints
 Authentication
 
 POST /api/v1/auth/register - User registration
 POST /api/v1/auth/login - User login
 GET /api/v1/auth/logout - User logout
 
-Jobs
+## Jobs
 
 GET /api/v1/jobs - Get all jobs (with filtering)
 POST /api/v1/jobs - Create new job
@@ -149,7 +149,7 @@ PATCH /api/v1/jobs/:id - Update job
 DELETE /api/v1/jobs/:id - Delete job
 GET /api/v1/jobs/stats - Get job statistics
 
-Users
+## Users
 
 GET /api/v1/users/current-user - Get current user
 PATCH /api/v1/users/update-user - Update user profile

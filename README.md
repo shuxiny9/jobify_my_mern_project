@@ -6,6 +6,7 @@ A modern job tracking application built with the MERN stack that helps users man
 [View Live Application](https://jobify-my-mern-project.onrender.com)
 
 🧪 Testing
+
 Email:john@gmail.com
 
 Password:secret123
